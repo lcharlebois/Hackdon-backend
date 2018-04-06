@@ -1,0 +1,8 @@
+
+{
+    "region" : "us-east-2",
+    "profile" : "aproulx",
+    "configuration" : "Release",
+    "vstoolkit-deployment-mode" : "PushOnly",
+    "tag"                       : "momentservicesapibusiness:0.1.0"
+}

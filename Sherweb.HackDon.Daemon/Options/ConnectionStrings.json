@@ -1,0 +1,5 @@
+﻿{
+  "ConnectionStrings": {
+    "MomentDatabase": "Server=moment.services.mssql;Database=Moment;User id=SA;Password=Moment1234"
+  }
+}

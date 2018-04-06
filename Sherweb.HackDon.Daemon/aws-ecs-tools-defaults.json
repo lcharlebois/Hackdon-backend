@@ -1,0 +1,8 @@
+
+{
+    "region" : "us-east-2",
+    "profile" : "aproulx",
+    "configuration" : "Release",
+    "tag"           : "momentservicesdaemon:0.1.0",
+    "vstoolkit-deployment-mode" : "PushOnly"
+}

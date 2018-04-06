@@ -1,0 +1,35 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "momentservicesdaemon",
+      "image": "958301269065.dkr.ecr.us-east-2.amazonaws.com/momentservicesdaemon:staging",
+      "essential": true,
+      "memory": 256
+    },
+    {
+      "name": "momentservicesapicustomer",
+      "image": "958301269065.dkr.ecr.us-east-2.amazonaws.com/momentservicesapicustomer:staging",
+      "essential": true,
+      "memory": 256,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ]
+    },
+    {
+      "name": "momentservicesapibusiness",
+      "image": "958301269065.dkr.ecr.us-east-2.amazonaws.com/momentservicesapibusiness:staging",
+      "essential": true,
+      "memory": 256,
+      "portMappings": [
+        {
+          "hostPort": 81,
+          "containerPort": 80
+        }
+      ]
+    }
+  ]
+}

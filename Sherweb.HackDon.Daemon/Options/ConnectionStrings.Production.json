@@ -1,0 +1,5 @@
+﻿{
+  "ConnectionStrings": {
+    "MomentDatabase": "Server=moment.cxs5l8rbnimd.us-east-2.rds.amazonaws.com;Database=Moment;User id=moment123321;Password=moment123321"
+  }
+}
