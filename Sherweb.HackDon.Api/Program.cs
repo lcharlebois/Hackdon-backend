@@ -22,6 +22,7 @@ namespace Sherweb.HackDon.Api
                     logging.AddDebug();
                 })
                 .UseStartup<Startup>()
+                .UseUrls("http://0.0.0.0:5000/")
                 .Build();
     }
 }
