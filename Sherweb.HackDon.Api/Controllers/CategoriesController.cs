@@ -7,29 +7,29 @@ using Sherweb.HackDon.Models;
 
 namespace Sherweb.HackDon.Api.Controllers
 {
-    [ODataRoutePrefix("OSBLs")]
-    public class OSBLsController : Controller
+    [ODataRoutePrefix("Categories")]
+    public class CategoriesController : Controller
     {
         private DatabaseContext DatabaseContext { get; set; }
         
 
-        public OSBLsController(DatabaseContext databaseContext)
+        public CategoriesController(DatabaseContext databaseContext)
         {
             this.DatabaseContext = databaseContext;
         }
 
-        // GET: /OSBLs
+        // GET: /Categories
         [EnableQuery(AllowedQueryOptions = Microsoft.AspNet.OData.Query.AllowedQueryOptions.All)]
-        public IActionResult GetOSBLs()
+        public IActionResult GetCategories()
         {
-            return Ok(this.DatabaseContext.OSBLs);
+            return Ok(this.DatabaseContext.Categories);
         }
 
-        // GET: /OSBLs(3a9d67ca-e720-4c76-94cb-0ee64f1cb564)?$select=Description
+        // GET: /Categories(3a9d67ca-e720-4c76-94cb-0ee64f1cb564)?$select=Description
         [EnableQuery(AllowedQueryOptions = Microsoft.AspNet.OData.Query.AllowedQueryOptions.All)]
-        public IActionResult GetOSBLs([FromODataUri] Guid key)
+        public IActionResult GetCategories([FromODataUri] Guid key)
         {
-            return Ok(this.DatabaseContext.OSBLs.Where(w => w.Id == key));
+            return Ok(this.DatabaseContext.Categories.Where(w => w.Id == key));
         }
     }
 }
