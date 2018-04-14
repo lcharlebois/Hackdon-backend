@@ -5,18 +5,22 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Sherweb.HackDon.Models;
 
 namespace Sherweb.HackDon.Api
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+        private ILogger<Startup> _logger;
 
         public IConfiguration Configuration { get; }
+
+        public Startup(ILogger<Startup> logger, IConfiguration configuration)
+        {
+            _logger = logger;
+            Configuration = configuration;
+        }     
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -37,12 +41,14 @@ namespace Sherweb.HackDon.Api
 
             var builder = new ODataConventionModelBuilder(app.ApplicationServices);
 
-            builder.EntitySet<Models.Entities.News>("News").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
+            _logger.LogWarning($"Connection String Used: {Configuration.GetConnectionString("HackDonDatabase")}");
+
+            builder.EntitySet<Models.Entities.OSBL>("OSBLs").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
             
             app.UseMvc(routeBuilder =>
             {
                 routeBuilder.Count().Filter().OrderBy().Expand().Select().MaxTop(null);
-                routeBuilder.MapODataServiceRoute("ODataBusinessesRoute", "", builder.GetEdmModel());
+                routeBuilder.MapODataServiceRoute("ODataRoutes", null, builder.GetEdmModel());
                 routeBuilder.EnableDependencyInjection();
             });
         }

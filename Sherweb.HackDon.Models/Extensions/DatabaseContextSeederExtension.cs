@@ -9,22 +9,22 @@ namespace Sherweb.HackDon.Models.Extensions
     {
         public static void SeedDevData(this DatabaseContext context)
         {
-            if (context.News.Any())
+            if (context.OSBLs.Any())
             {
                 return; // DB has been seeded
             }
 
             // Seed ClientUsers
             
-            context.News.AddRange(GenerateNews());
+            context.OSBLs.AddRange(GenerateOSBLs());
 
             context.SaveChanges();
         }
 
-        private static List<News> GenerateNews()
+        private static List<OSBL> GenerateOSBLs()
         {
-            return new List<News> {
-                new News
+            return new List<OSBL> {
+                new OSBL
                 {
                     Id = Guid.NewGuid(),
                 }
