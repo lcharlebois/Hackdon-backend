@@ -43,8 +43,9 @@ namespace Sherweb.HackDon.Api
 
             _logger.LogWarning($"Connection String Used: {Configuration.GetConnectionString("HackDonDatabase")}");
 
-            builder.EntitySet<Models.Entities.OSBL>("OSBLs").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
             builder.EntitySet<Models.Entities.Category>("Categories").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
+            builder.EntitySet<Models.Entities.Cause>("Causes").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
+            builder.EntitySet<Models.Entities.OSBL>("OSBLs").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
             
             app.UseMvc(routeBuilder =>
             {
