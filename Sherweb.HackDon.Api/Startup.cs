@@ -20,13 +20,15 @@ namespace Sherweb.HackDon.Api
         {
             _logger = logger;
             Configuration = configuration;
-        }     
+        }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
+
             services.AddOData();
-            services.AddDbContext<DatabaseContext>(options => 
+            services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("HackDonDatabase"))
             );
         }
@@ -48,6 +50,13 @@ namespace Sherweb.HackDon.Api
             builder.EntitySet<Models.Entities.OSBL>("OSBLs").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
             builder.EntitySet<Models.Entities.SubCategory>("SubCategories").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
             builder.EntitySet<Models.Entities.VotedCause>("VotedCauses").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
+
+            app.UseCors(
+                options => options
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+            );
 
             app.UseMvc(routeBuilder =>
             {
