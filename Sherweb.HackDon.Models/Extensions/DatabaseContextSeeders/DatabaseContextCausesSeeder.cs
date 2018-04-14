@@ -23,7 +23,8 @@ namespace Sherweb.HackDon.Models.Extensions.DatabaseContextSeeders
             {
                 Id = Guid.NewGuid(),
                 Description = "Deeply complex, the climate system drives wind, water, and warmth around our beautiful blue planet, nurturing all life. But now our climate is changing fast. The cause is an old, broken energy system that pollutes our air and water, drives inequality and destroys priceless landscapes. We really have to change; we have only a limited time to act. Join us as we fight to end polluting coal, oil, gas and nuclear projects. Help us accelerate the urgent leap to a future powered by 100 percent clean renewable energy — the key to security and wellbeing for all.",
-                Title = "Stop climate change"
+                Title = "Stop climate change",
+                ExternalProjectUrl = "https://www.greenpeace.org/archive-international/en/campaigns/climate-change/"
             }
         };
     }

@@ -11,7 +11,7 @@ using System;
 namespace Sherweb.HackDon.Models.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20180414163139_InitialMigration")]
+    [Migration("20180414192242_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
