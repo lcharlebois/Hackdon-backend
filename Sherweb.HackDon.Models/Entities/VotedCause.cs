@@ -11,5 +11,7 @@ namespace Sherweb.HackDon.Models.Entities
         public Guid CauseId { get; set; }
         
         public Cause Cause { get; set; }
+
+        public double Ratio { get; set; }
     }
 }

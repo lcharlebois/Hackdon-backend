@@ -27,7 +27,7 @@ namespace Sherweb.HackDon.Models.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<Guid>("IconUrl");
+                    b.Property<string>("IconUrl");
 
                     b.Property<string>("Title");
 
@@ -110,6 +110,8 @@ namespace Sherweb.HackDon.Models.Migrations
                     b.Property<Guid>("CauseId");
 
                     b.Property<bool>("LikedIt");
+
+                    b.Property<double>("Ratio");
 
                     b.HasKey("Id");
 

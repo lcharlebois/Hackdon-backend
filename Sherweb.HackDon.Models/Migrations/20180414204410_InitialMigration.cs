@@ -14,7 +14,7 @@ namespace Sherweb.HackDon.Models.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     Description = table.Column<string>(nullable: true),
-                    IconUrl = table.Column<Guid>(nullable: false),
+                    IconUrl = table.Column<string>(nullable: true),
                     Title = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -94,7 +94,8 @@ namespace Sherweb.HackDon.Models.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     CauseId = table.Column<Guid>(nullable: false),
-                    LikedIt = table.Column<bool>(nullable: false)
+                    LikedIt = table.Column<bool>(nullable: false),
+                    Ratio = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {

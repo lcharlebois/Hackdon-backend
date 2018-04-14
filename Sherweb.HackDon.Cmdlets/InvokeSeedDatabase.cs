@@ -1,18 +1,18 @@
-﻿using System.Management.Automation;
+using System.Management.Automation;
 using Microsoft.EntityFrameworkCore;
 using Sherweb.HackDon.Models.Extensions;
 
-namespace Moment.Services.Cmdlets
+namespace Sherweb.HackDon.Cmdlets
 {
-    [Cmdlet(VerbsLifecycle.Invoke, "Migrations")]
-    public class InvokeMigrations : BaseCmdlet
+    [Cmdlet(VerbsLifecycle.Invoke, "SeedDatabase")]
+    public class SeedDatabase : BaseCmdlet
     {
         [Parameter(ValueFromPipeline = true)]
         public SwitchParameter SeedData { get; set; }
 
         protected override void ExecuteProcess()
         {
-            this.DbContext.Database.Migrate();
+            //this.DbContext.Database.Migrate();
 
             if (this.SeedData.IsPresent)
             {

@@ -20,14 +20,14 @@ namespace Sherweb.HackDon.Api.Controllers
 
         // GET: /Categories
         [EnableQuery(AllowedQueryOptions = Microsoft.AspNet.OData.Query.AllowedQueryOptions.All)]
-        public IActionResult GetCategories()
+        public IActionResult Get()
         {
             return Ok(this.DatabaseContext.Categories);
         }
 
         // GET: /Categories(3a9d67ca-e720-4c76-94cb-0ee64f1cb564)?$select=Description
         [EnableQuery(AllowedQueryOptions = Microsoft.AspNet.OData.Query.AllowedQueryOptions.All)]
-        public IActionResult GetCategories([FromODataUri] Guid key)
+        public IActionResult Get([FromODataUri] Guid key)
         {
             return Ok(this.DatabaseContext.Categories.Where(w => w.Id == key));
         }

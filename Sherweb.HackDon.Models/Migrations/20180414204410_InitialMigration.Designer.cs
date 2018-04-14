@@ -11,7 +11,7 @@ using System;
 namespace Sherweb.HackDon.Models.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20180414192242_InitialMigration")]
+    [Migration("20180414204410_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,7 +28,7 @@ namespace Sherweb.HackDon.Models.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<Guid>("IconUrl");
+                    b.Property<string>("IconUrl");
 
                     b.Property<string>("Title");
 
@@ -111,6 +111,8 @@ namespace Sherweb.HackDon.Models.Migrations
                     b.Property<Guid>("CauseId");
 
                     b.Property<bool>("LikedIt");
+
+                    b.Property<double>("Ratio");
 
                     b.HasKey("Id");
 

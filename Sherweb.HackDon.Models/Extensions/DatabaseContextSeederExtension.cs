@@ -6,9 +6,11 @@ namespace Sherweb.HackDon.Models.Extensions
     {
         public static void SeedDevData(this DatabaseContext context)
         {
-            context.SeedCauses();
             context.SeedCategories();
             context.SeedSubCategories();
+            context.SeedOSBLs();
+            context.SeedCauses();
+            context.SeedVotedCauses();
         }
     }
 }

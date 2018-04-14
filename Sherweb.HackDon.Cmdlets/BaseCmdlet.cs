@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Management.Automation;
 using System.Reflection;
@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Sherweb.HackDon.Models;
 
-namespace Moment.Services.Cmdlets
+namespace Sherweb.HackDon.Cmdlets
 {
     public abstract class BaseCmdlet : PSCmdlet
     {
@@ -49,6 +49,7 @@ namespace Moment.Services.Cmdlets
                 this.Log = loggerFactory.CreateLogger(nameof(BaseCmdlet));
 
                 this.DbContext = serviceProvider.GetRequiredService<DatabaseContext>();
+                this.Log.LogWarning($"Connection String Used: {configuration.GetConnectionString("HackDonDatabase")}");
             }
             catch (Exception e)
             {
