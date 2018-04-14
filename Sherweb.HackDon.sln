@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		Dockerfile = Dockerfile
+		RegenerateMigrations.ps1 = RegenerateMigrations.ps1
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sherweb.HackDon.Api", "Sherweb.HackDon.Api\Sherweb.HackDon.Api.csproj", "{AD39C1B9-6C92-46B0-86AD-01DD048A7CE4}"
