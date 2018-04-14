@@ -6,7 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0C86F359-6C7B-4131-8C51-C0585680C239}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		Dockerrun.aws.json = Dockerrun.aws.json
+		Dockerfile = Dockerfile
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sherweb.HackDon.Api", "Sherweb.HackDon.Api\Sherweb.HackDon.Api.csproj", "{AD39C1B9-6C92-46B0-86AD-01DD048A7CE4}"
@@ -18,8 +18,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sherweb.HackDon.Domain", "Sherweb.HackDon.Domain\Sherweb.HackDon.Domain.csproj", "{3DF5D96D-1574-4728-8282-7CDAD42A0E7F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sherweb.HackDon.Models", "Sherweb.HackDon.Models\Sherweb.HackDon.Models.csproj", "{FA114F89-9CDD-4390-A15A-2D78FBB839C0}"
-EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{27BECBBA-A667-40A0-B94B-CD64546C3F46}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +45,6 @@ Global
 		{FA114F89-9CDD-4390-A15A-2D78FBB839C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA114F89-9CDD-4390-A15A-2D78FBB839C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA114F89-9CDD-4390-A15A-2D78FBB839C0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{27BECBBA-A667-40A0-B94B-CD64546C3F46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{27BECBBA-A667-40A0-B94B-CD64546C3F46}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{27BECBBA-A667-40A0-B94B-CD64546C3F46}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{27BECBBA-A667-40A0-B94B-CD64546C3F46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
