@@ -6,8 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Moment.Services.Domain;
-using Moment.Services.Models;
+using Sherweb.HackDon.Models;
 
 namespace Moment.Services.Cmdlets
 {
@@ -15,7 +14,7 @@ namespace Moment.Services.Cmdlets
     {
         protected ILogger Log { get; private set; }
 
-        protected MomentContext DbContext { get; private set; }
+        protected DatabaseContext DbContext { get; private set; }
 
         protected abstract void ExecuteProcess();
 
@@ -36,12 +35,10 @@ namespace Moment.Services.Cmdlets
                 services.AddLogging();
                 services.AddOptions();
 
-                services.AddDbContext<MomentContext>(options =>
-                    options.UseSqlServer(configuration.GetConnectionString("MomentDatabase"))
+                services.AddDbContext<DatabaseContext>(options =>
+                    options.UseSqlServer(configuration.GetConnectionString("HackDonDatabase"))
                 );
-                services.AddScoped<IBusinessService, BusinessService>();
-                services.AddScoped<IDealService, DealService>();
-                services.AddScoped<IClientService, ClientService>();
+
 
                 var serviceProvider = services.BuildServiceProvider();
 
@@ -51,7 +48,7 @@ namespace Moment.Services.Cmdlets
 
                 this.Log = loggerFactory.CreateLogger(nameof(BaseCmdlet));
 
-                this.DbContext = serviceProvider.GetRequiredService<MomentContext>();
+                this.DbContext = serviceProvider.GetRequiredService<DatabaseContext>();
             }
             catch (Exception e)
             {
