@@ -1,7 +1,4 @@
-using Sherweb.HackDon.Models.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Sherweb.HackDon.Models.Extensions.DatabaseContextSeeders;
 
 namespace Sherweb.HackDon.Models.Extensions
 {
@@ -10,6 +7,8 @@ namespace Sherweb.HackDon.Models.Extensions
         public static void SeedDevData(this DatabaseContext context)
         {
             context.SeedCauses();
+            context.SeedCategories();
+            context.SeedSubCategories();
         }
     }
 }

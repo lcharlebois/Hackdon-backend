@@ -1,10 +1,9 @@
-﻿using Sherweb.HackDon.Models.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using Sherweb.HackDon.Models.Entities;
 
-namespace Sherweb.HackDon.Models.Extensions
+namespace Sherweb.HackDon.Models.Extensions.DatabaseContextSeeders
 {
     internal static class DatabaseContextCausesSeeder
     {
@@ -12,14 +11,14 @@ namespace Sherweb.HackDon.Models.Extensions
         {
             if (!databaseContext.Causes.Any())
             {
-                databaseContext.Causes.AddRange(DatabaseContextCausesSeeder._causes);
+                databaseContext.Causes.AddRange(Causes);
                 databaseContext.SaveChanges();
             }
 
             return databaseContext;
         }
 
-        private static readonly List<Cause> _causes = new List<Cause> {
+        private static readonly List<Cause> Causes = new List<Cause> {
             new Cause
             {
                 Id = Guid.NewGuid(),
