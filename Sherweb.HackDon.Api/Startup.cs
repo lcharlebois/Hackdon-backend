@@ -19,12 +19,13 @@ namespace Sherweb.HackDon.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddMvc();
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("HackDonDatabase"))
             );
 
-            services.AddCors();
+            
 
         }
 
@@ -35,6 +36,9 @@ namespace Sherweb.HackDon.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(builder => builder.WithOrigins("*"));
+            //app.UseCors(builder =>builder.WithOrigins("http://example.com"));
 
             app.UseMvc();
         }
