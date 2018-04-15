@@ -25,23 +25,15 @@ namespace Sherweb.HackDon.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowAll",
-                    builder =>
-                    {
-                        builder
-                        .AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowAnyHeader()
-                        .AllowCredentials();
-                    });
-            });
+            services.AddCors();
 
             services.AddOData();
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("HackDonDatabase"))
             );
+
+            services.AddCors();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +43,12 @@ namespace Sherweb.HackDon.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(b => b
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
 
             var builder = new ODataConventionModelBuilder(app.ApplicationServices);
 
@@ -67,12 +65,25 @@ namespace Sherweb.HackDon.Api
             builder.EntitySet<Models.Entities.UserSubCategory>("UserSubCategories").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
             builder.EntitySet<Models.Entities.VotedCause>("VotedCauses").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
 
+            app.UseCors(b => b
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
+
             app.UseMvc(routeBuilder =>
             {
                 routeBuilder.Count().Filter().OrderBy().Expand().Select().MaxTop(null);
                 routeBuilder.MapODataServiceRoute("ODataRoutes", null, builder.GetEdmModel());
                 routeBuilder.EnableDependencyInjection();
             });
+
+
+            app.UseCors(b => b
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
         }
     }
 }

@@ -42,12 +42,11 @@ namespace Sherweb.HackDon.Api.Controllers
         public HttpResponseMessage Options()
 
         {
+            var resp = new HttpResponseMessage();
+            resp.Content = new StringContent("");
+            resp.Content.Headers.Add("Allow", "GET, PUT, POST, DELETE, HEAD");
 
-            HttpResponseMessage response = new HttpResponseMessage();
-
-            response.Headers.Add("Allow", "GET, PUT, POST, DELETE, HEAD");
-
-            return response;
+            return resp;
 
         }
     }
