@@ -25,7 +25,7 @@ namespace Sherweb.HackDon.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
+            //services.AddCors();
 
             services.AddOData();
             services.AddDbContext<DatabaseContext>(options =>
@@ -43,12 +43,6 @@ namespace Sherweb.HackDon.Api
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseCors(b => b
-                .AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-                .AllowCredentials());
 
             var builder = new ODataConventionModelBuilder(app.ApplicationServices);
 
@@ -78,12 +72,6 @@ namespace Sherweb.HackDon.Api
                 routeBuilder.EnableDependencyInjection();
             });
 
-
-            app.UseCors(b => b
-                .AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-                .AllowCredentials());
         }
     }
 }
