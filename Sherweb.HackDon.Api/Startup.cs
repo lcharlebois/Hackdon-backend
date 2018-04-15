@@ -59,7 +59,12 @@ namespace Sherweb.HackDon.Api
             builder.EntitySet<Models.Entities.Category>("Categories").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
             builder.EntitySet<Models.Entities.Cause>("Causes").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
             builder.EntitySet<Models.Entities.OSBL>("OSBLs").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
+            builder.EntitySet<Models.Entities.Post>("Posts").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
             builder.EntitySet<Models.Entities.SubCategory>("SubCategories").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
+            builder.EntitySet<Models.Entities.Subscription>("Subscriptions").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
+            builder.EntitySet<Models.Entities.User>("Users").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
+            builder.EntitySet<Models.Entities.UserCategory>("UserCategories").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
+            builder.EntitySet<Models.Entities.UserSubCategory>("UserSubCategories").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
             builder.EntitySet<Models.Entities.VotedCause>("VotedCauses").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
 
             app.UseMvc(routeBuilder =>
