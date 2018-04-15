@@ -10,8 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		RegenerateMigrations.ps1 = RegenerateMigrations.ps1
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sherweb.HackDon.Api", "Sherweb.HackDon.Api\Sherweb.HackDon.Api.csproj", "{AD39C1B9-6C92-46B0-86AD-01DD048A7CE4}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sherweb.HackDon.Cmdlets", "Sherweb.HackDon.Cmdlets\Sherweb.HackDon.Cmdlets.csproj", "{3FA6FA4C-F29D-4214-A71A-4E7853D67634}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sherweb.HackDon.Daemon", "Sherweb.HackDon.Daemon\Sherweb.HackDon.Daemon.csproj", "{E11DCB7D-1B02-43AC-B541-025ACFDC92BD}"
@@ -20,16 +18,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sherweb.HackDon.Domain", "S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sherweb.HackDon.Models", "Sherweb.HackDon.Models\Sherweb.HackDon.Models.csproj", "{FA114F89-9CDD-4390-A15A-2D78FBB839C0}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sherweb.HackDon.Api", "Sherweb.HackDon.Api\Sherweb.HackDon.Api.csproj", "{3692F728-E8C7-492B-BF93-0569EC629858}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AD39C1B9-6C92-46B0-86AD-01DD048A7CE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD39C1B9-6C92-46B0-86AD-01DD048A7CE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD39C1B9-6C92-46B0-86AD-01DD048A7CE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD39C1B9-6C92-46B0-86AD-01DD048A7CE4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3FA6FA4C-F29D-4214-A71A-4E7853D67634}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3FA6FA4C-F29D-4214-A71A-4E7853D67634}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FA6FA4C-F29D-4214-A71A-4E7853D67634}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -46,6 +42,10 @@ Global
 		{FA114F89-9CDD-4390-A15A-2D78FBB839C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA114F89-9CDD-4390-A15A-2D78FBB839C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA114F89-9CDD-4390-A15A-2D78FBB839C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3692F728-E8C7-492B-BF93-0569EC629858}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3692F728-E8C7-492B-BF93-0569EC629858}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3692F728-E8C7-492B-BF93-0569EC629858}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3692F728-E8C7-492B-BF93-0569EC629858}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
