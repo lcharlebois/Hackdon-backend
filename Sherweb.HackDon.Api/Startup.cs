@@ -25,7 +25,18 @@ namespace Sherweb.HackDon.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    builder =>
+                    {
+                        builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials();
+                    });
+            });
 
             services.AddOData();
             services.AddDbContext<DatabaseContext>(options =>
@@ -50,14 +61,6 @@ namespace Sherweb.HackDon.Api
             builder.EntitySet<Models.Entities.OSBL>("OSBLs").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
             builder.EntitySet<Models.Entities.SubCategory>("SubCategories").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
             builder.EntitySet<Models.Entities.VotedCause>("VotedCauses").EntityType.Filter(Microsoft.AspNet.OData.Query.QueryOptionSetting.Allowed);
-
-            app.UseCors(
-                options => options
-                .AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-                .AllowCredentials()
-            );
 
             app.UseMvc(routeBuilder =>
             {

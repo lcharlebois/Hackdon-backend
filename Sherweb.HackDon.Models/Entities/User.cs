@@ -10,6 +10,6 @@ namespace Sherweb.HackDon.Models.Entities
 
         public string LastName { get; set; }
 
-        public string Age { get; set; }
+        public int Age { get; set; }
     }
 }

@@ -10,6 +10,7 @@ namespace Sherweb.HackDon.Models.Extensions
             context.SeedSubCategories();
             context.SeedOSBLs();
             context.SeedCauses();
+            context.SeedUsers();
             context.SeedVotedCauses();
         }
     }
