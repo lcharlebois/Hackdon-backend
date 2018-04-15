@@ -16,6 +16,11 @@ namespace Sherweb.HackDon.Api.Controllers
             this.DatabaseContext = databaseContext;
         }
 
+        public IActionResult Get()
+        {
+            return Ok();
+        }
+
         [HttpGet]
         public IActionResult GetAll()
         {
