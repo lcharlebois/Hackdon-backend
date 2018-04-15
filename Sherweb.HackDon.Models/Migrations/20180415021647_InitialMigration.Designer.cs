@@ -11,7 +11,7 @@ using System;
 namespace Sherweb.HackDon.Models.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20180414204410_InitialMigration")]
+    [Migration("20180415021647_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -83,6 +83,22 @@ namespace Sherweb.HackDon.Models.Migrations
                     b.ToTable("OSBLs");
                 });
 
+            modelBuilder.Entity("Sherweb.HackDon.Models.Entities.Post", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("IconUrl");
+
+                    b.Property<string>("Title");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Posts");
+                });
+
             modelBuilder.Entity("Sherweb.HackDon.Models.Entities.SubCategory", b =>
                 {
                     b.Property<Guid>("Id")
@@ -103,6 +119,74 @@ namespace Sherweb.HackDon.Models.Migrations
                     b.ToTable("SubCategories");
                 });
 
+            modelBuilder.Entity("Sherweb.HackDon.Models.Entities.Subscription", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<double>("Amount");
+
+                    b.Property<Guid>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Subscriptions");
+                });
+
+            modelBuilder.Entity("Sherweb.HackDon.Models.Entities.User", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Age");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Sherweb.HackDon.Models.Entities.UserCategory", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<Guid>("CategoryId");
+
+                    b.Property<Guid>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserCategories");
+                });
+
+            modelBuilder.Entity("Sherweb.HackDon.Models.Entities.UserSubCategory", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<Guid>("SubCategoryId");
+
+                    b.Property<Guid>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SubCategoryId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserSubCategories");
+                });
+
             modelBuilder.Entity("Sherweb.HackDon.Models.Entities.VotedCause", b =>
                 {
                     b.Property<Guid>("Id")
@@ -114,9 +198,13 @@ namespace Sherweb.HackDon.Models.Migrations
 
                     b.Property<double>("Ratio");
 
+                    b.Property<Guid>("UserId");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CauseId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("VotedCauses");
                 });
@@ -142,11 +230,50 @@ namespace Sherweb.HackDon.Models.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
+            modelBuilder.Entity("Sherweb.HackDon.Models.Entities.Subscription", b =>
+                {
+                    b.HasOne("Sherweb.HackDon.Models.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("Sherweb.HackDon.Models.Entities.UserCategory", b =>
+                {
+                    b.HasOne("Sherweb.HackDon.Models.Entities.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Sherweb.HackDon.Models.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("Sherweb.HackDon.Models.Entities.UserSubCategory", b =>
+                {
+                    b.HasOne("Sherweb.HackDon.Models.Entities.SubCategory", "SubCategory")
+                        .WithMany()
+                        .HasForeignKey("SubCategoryId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Sherweb.HackDon.Models.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
             modelBuilder.Entity("Sherweb.HackDon.Models.Entities.VotedCause", b =>
                 {
                     b.HasOne("Sherweb.HackDon.Models.Entities.Cause", "Cause")
                         .WithMany()
                         .HasForeignKey("CauseId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Sherweb.HackDon.Models.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618

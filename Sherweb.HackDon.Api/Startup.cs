@@ -56,6 +56,7 @@ namespace Sherweb.HackDon.Api
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader()
+                .AllowCredentials()
             );
 
             app.UseMvc(routeBuilder =>

@@ -16,7 +16,17 @@ namespace Sherweb.HackDon.Models
 
         public DbSet<OSBL> OSBLs { get; set; }
 
+        public DbSet<Post> Posts { get; set; }
+
         public DbSet<SubCategory> SubCategories { get; set; }
+
+        public DbSet<Subscription> Subscriptions { get; set; }
+
+        public DbSet<User> Users { get; set; }
+
+        public DbSet<UserCategory> UserCategories { get; set; }
+
+        public DbSet<UserSubCategory> UserSubCategories { get; set; }
 
         public DbSet<VotedCause> VotedCauses { get; set; }
 
